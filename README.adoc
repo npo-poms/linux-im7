@@ -9,6 +9,7 @@ COPY --from docker.vpro.nl/debian-im7:dev /usr/local/bin/* /usr/local/bin/
 COPY --from docker.vpro.nl/debian-im7:dev /usr/local/lib/* /usr/local/lib/
 
 
+# TODO We might want to try to staticly link more, and reduce the number of needed deps here:
 RUN apt-get update  && \
     apt-get upgrade  && \
     apt-get -y install postgresql-client \
