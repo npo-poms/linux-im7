@@ -1,4 +1,4 @@
-FROM debian:stable-slim AS im_build
+FROM debian:stable-slim
 
 # Build ImageMagick v7
 # not available in debian yet?
