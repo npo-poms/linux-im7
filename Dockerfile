@@ -45,18 +45,3 @@ RUN apt-get -y update && \
     rm -rf /ImageMagick
 
 
-
-##############################################################
-# Configure Tomcat image itself
-
-FROM tomcat:9-jdk8-openjdk-slim
-LABEL maintainer=digitaal-techniek@vpro.nl
-
-# copy image magick
-COPY --from=npo-tomcat-im:dev  /usr/local/bin /usr/local/
-COPY --from=npo-tomcat-im:dev  /usr/local/lib /usr/local/
-
-RUN apt-get -y update && \
-    apt-get -y upgrade && \
-    apt-get install -y libde265-0 libjpeg62-turbo x265 libx265-dev libtool libjpeg62-turbo libwebp6 libgomp1 libwebpmux3 libwebpdemux2 ghostscript libxml2-dev libxml2-utils && \
-    ldconfig /usr/local/lib
