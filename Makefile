@@ -1,8 +1,5 @@
 
 
 docker:
-	docker build --no-cache  -t npo-tomcat-im:dev .
+	docker build --no-cache  -t vpro/debian-im7 .
 
-
-im:
-	docker build --no-cache --target im_build -t npo-tomcat-im-build:dev .
