@@ -1,12 +1,12 @@
-= Debian image with ImageMagic 7
+= Ubuntu image with ImageMagic 7
 
 The idea is to copy image magick binaries from this, if you need them:
 
 [source, dockerfile]
 ----
 # copy image magic
-COPY --from=docker.vpro.nl/debian-im7:1 /usr/local/bin/* /usr/local/bin/
-COPY --from=docker.vpro.nl/debian-im7:1 /usr/local/lib/* /usr/local/lib/
+COPY --from=docker.vpro.nl/linux-im7:2 /usr/local/bin/* /usr/local/bin/
+COPY --from=docker.vpro.nl/linux-im7:2 /usr/local/lib/* /usr/local/lib/
 
 
 # TODO We might want to try to staticly link more, and reduce the number of needed deps here:
