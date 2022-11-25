@@ -4,11 +4,10 @@ FROM ubuntu:jammy
 # not available in debian yet?
 # Borrowed from: https://github.com/dooman87/imagemagick-docker
 
-ARG IM_VERSION=7.1.0-48
-ARG LIB_HEIF_VERSION=1.13.0
-ARG LIB_AOM_VERSION=3.4.0
-ARG LIB_WEBP_VERSION=1.2.4
-ARG LIBJXL_VERSION=0.6.1
+ARG IM_VERSION=7.1.0-52
+ARG LIB_HEIF_VERSION=1.14.0
+ARG LIB_AOM_VERSION=3.5.0
+ 
 
 # TODO:
 # - How about more static linking?
