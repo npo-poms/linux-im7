@@ -1,7 +1,8 @@
 FROM ubuntu:jammy
 
-
+# picked up by gitlabci:
 ARG NAME=debian-im7
+
 # Build ImageMagick v7
 # not available in debian yet?
 # Borrowed from: https://github.com/dooman87/imagemagick-docker
