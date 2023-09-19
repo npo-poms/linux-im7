@@ -1,4 +1,6 @@
 ---
+variables: 
+  IMAGE_NAME: linux-im7
 include:
   - project: 'shared/gitlab/gitlab-templates'
     ref: 'tags/9.9'
