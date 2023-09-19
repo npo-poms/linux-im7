@@ -5,8 +5,8 @@ The idea is to copy image magick binaries from this, if you need them:
 [source, dockerfile]
 ----
 # copy image magic
-COPY --from=docker.vpro.nl/linux-im7:2 /usr/local/bin/* /usr/local/bin/
-COPY --from=docker.vpro.nl/linux-im7:2 /usr/local/lib/* /usr/local/lib/
+COPY --from=docker.vpro.nl/linux-im7:5 /usr/local/bin/* /usr/local/bin/
+COPY --from=docker.vpro.nl/linux-im7:5 /usr/local/lib/* /usr/local/lib/
 
 
 # TODO We might want to try to staticly link more, and reduce the number of needed deps here:
@@ -15,6 +15,5 @@ RUN apt-get update  && \
     apt-get -y install postgresql-client \
      libde265-0 libjpeg62-turbo x265 libx265-dev libtool libjpeg62-turbo libwebp6 libgomp1 libwebpmux3 libwebpdemux2 ghostscript libxml2-dev libxml2-utils && \
     ldconfig /usr/local/lib
-
 
 ----
