@@ -2,6 +2,6 @@
 variables: 
   IMAGE_NAME: vpro/linux-im7
 include:
-  - project: 'shared/gitlab/gitlab-templates'
+  - project: 'npo-identity/poms/gitlab-templates'
     ref: 'chp4'
     file: 'docker_build.yml'
