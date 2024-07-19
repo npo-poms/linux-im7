@@ -1,7 +1,8 @@
 ---
-variables: 
-  IMAGE_NAME: vpro/linux-im7
+variables:
+  NAMESPACE: poms
+  IMAGE_NAME: linux-im7
 include:
-  - project: 'shared/gitlab/gitlab-templates'
-    ref: 'tags/9.9'
+  - project: 'npo-identity/poms/gitlab-templates'
+    ref: 'chp4'
     file: 'docker_build.yml'
