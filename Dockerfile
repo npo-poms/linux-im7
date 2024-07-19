@@ -1,7 +1,7 @@
 FROM ubuntu:jammy
 
 # picked up by gitlabci:
-ARG NAME=vpro/linux-im7
+ARG NAME=poms/linux-im7
 
 # Build ImageMagick v7
 # not available in debian yet?
