@@ -9,8 +9,6 @@ The idea is to copy image magick binaries from this, if you need them:
 COPY --from=ghcr.io/npo-poms/linux-im7:7  /usr/local/bin/* /usr/local/bin/
 COPY --from=ghcr.io/npo-poms/linux-im7:7 /usr/local/lib/* /usr/local/lib/
 
-
-# TODO We might want to try to staticly link more, and reduce the number of needed deps here:
 RUN apt-get update  && \
     apt-get upgrade  && \
     apt-get -y install postgresql-client \
