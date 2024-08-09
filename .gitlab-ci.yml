@@ -1,8 +1,0 @@
----
-variables:
-  NAMESPACE: poms
-  IMAGE_NAME: linux-im7
-include:
-  - project: 'npo-identity/poms/gitlab-templates'
-    ref: 'chp4'
-    file: 'docker_build.yml'
