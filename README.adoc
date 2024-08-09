@@ -17,4 +17,4 @@ RUN apt-get update  && \
 
 ----
 
-This is to be used in an image based on ghcr.io/vpro/tomcat
+This is used in imagers based on ghcr.io/vpro/tomcat
