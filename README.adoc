@@ -1,12 +1,13 @@
-= Ubuntu image with ImageMagic 7
+= Ubuntu image with ImageMagick 7
 
 The idea is to copy image magick binaries from this, if you need them:
 
 [source, dockerfile]
 ----
 # copy image magic
-COPY --from=docker.vpro.nl/linux-im7:5 /usr/local/bin/* /usr/local/bin/
-COPY --from=docker.vpro.nl/linux-im7:5 /usr/local/lib/* /usr/local/lib/
+ 
+COPY --from=ghcr.io/npo-poms/linux-im7:7  /usr/local/bin/* /usr/local/bin/
+COPY --from=ghcr.io/npo-poms/linux-im7:7 /usr/local/lib/* /usr/local/lib/
 
 
 # TODO We might want to try to staticly link more, and reduce the number of needed deps here:
@@ -17,3 +18,5 @@ RUN apt-get update  && \
     ldconfig /usr/local/lib
 
 ----
+
+This is to be used in an image based on ghcr.io/vpro/tomcat
