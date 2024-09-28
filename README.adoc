@@ -17,4 +17,4 @@ RUN apt-get update  && \
 
 ----
 
-This is used in imagers based on link:https://ghcr.io/vpro/tomcat[ghcr.io/vpro/tomcat]
+This is used in images based on link:https://ghcr.io/vpro/tomcat[ghcr.io/vpro/tomcat]
