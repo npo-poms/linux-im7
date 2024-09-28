@@ -7,7 +7,7 @@ ARG NAME=linux-im7
 # not available in debian yet?
 # Borrowed from: https://github.com/dooman87/imagemagick-docker
 
-ARG IM_VERSION=7.1.1-16
+ARG IM_VERSION=7.1.1-38
 ARG LIB_HEIF_VERSION=1.16.2
 ARG LIB_AOM_VERSION=3.7.0
 ARG LIB_WEBP_VERSION=1.3.1
