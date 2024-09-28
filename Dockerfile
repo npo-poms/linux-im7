@@ -10,9 +10,9 @@ ARG NAME=linux-im7
 ARG IM_VERSION=7.1.1-38
 ARG LIB_HEIF_VERSION=1.18.2
 ARG LIB_AOM_VERSION=3.10.0
-ARG LIB_WEBP_VERSION=1.4.1
+ARG LIB_WEBP_VERSION=1.4.0
 ARG LIBJXL_VERSION=0.11.0
- 
+
 
 # TODO:
 # - How about more static linking?
@@ -75,5 +75,3 @@ RUN apt-get -y update && \
     apt-get remove --autoremove --purge -y gcc make cmake clang curl g++ yasm git autoconf pkg-config libpng-dev libjpeg-turbo8-dev libde265-dev libx265-dev libxml2-dev libtiff-dev libfontconfig1-dev libfreetype6-dev liblcms2-dev libsdl1.2-dev libgif-dev libbrotli-dev && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /ImageMagick
-
-
