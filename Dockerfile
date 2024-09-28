@@ -1,7 +1,8 @@
 FROM ubuntu:jammy
 
-# picked up by gitlabci:
-ARG NAME=linux-im7
+LABEL maintainer=poms@mmprogrami.nl
+LABEL org.opencontainers.image.description An ubuntu image with imagemagick 7. Copy from this. See README.
+
 
 # Build ImageMagick v7
 # not available in debian yet?
@@ -34,8 +35,10 @@ RUN apt-get -y update && \
     # Install manually to prevent deleting with -dev packages
     libxext6 libbrotli1 && \
     # Building libjxl
-    export CC=clang CXX=clang++ && \
-    git clone -b v${LIBJXL_VERSION} https://github.com/libjxl/libjxl.git --depth 1 --recursive --shallow-submodules && \
+    export CC=clang CXX=clang++ &&\
+    git config --global advice.detachedHead false
+
+RUN    git clone -b v${LIBJXL_VERSION} https://github.com/libjxl/libjxl.git --depth 1 --recursive --shallow-submodules && \
     cd libjxl && \
     mkdir build && \
     cd build && \
@@ -44,9 +47,9 @@ RUN apt-get -y update && \
     cmake --install . && \
     cd ../../ && \
     rm -rf libjxl && \
-    ldconfig /usr/local/lib && \
+    ldconfig /usr/local/lib
     # Building libwebp
-    git clone -b v${LIB_WEBP_VERSION} --depth 1 https://chromium.googlesource.com/webm/libwebp && \
+RUN    git clone -b v${LIB_WEBP_VERSION} --depth 1 https://chromium.googlesource.com/webm/libwebp && \
     cd libwebp && \
     mkdir build && cd build && cmake ../ && make && make install && \
     make && make install && \
@@ -60,14 +63,14 @@ RUN apt-get -y update && \
     ldconfig /usr/local/lib && \
     cd .. && \
     rm -rf aom && \
-    rm -rf build_aom && \
+    rm -rf build_aom
     # Building libheif
-    curl -L https://github.com/strukturag/libheif/releases/download/v${LIB_HEIF_VERSION}/libheif-${LIB_HEIF_VERSION}.tar.gz -o libheif.tar.gz && \
+RUN    curl -L https://github.com/strukturag/libheif/releases/download/v${LIB_HEIF_VERSION}/libheif-${LIB_HEIF_VERSION}.tar.gz -o libheif.tar.gz && \
     tar -xzvf libheif.tar.gz && cd libheif-${LIB_HEIF_VERSION}/ && mkdir build && cd build && cmake --preset=release .. && make && make install && cd ../../ \
     ldconfig /usr/local/lib && \
-    rm -rf libheif-${LIB_HEIF_VERSION} && rm libheif.tar.gz && \
+    rm -rf libheif-${LIB_HEIF_VERSION} && rm libheif.tar.gz
     # Building ImageMagick
-    git clone -b ${IM_VERSION} --depth 1 https://github.com/ImageMagick/ImageMagick.git && \
+RUN    git clone -b ${IM_VERSION} --depth 1 https://github.com/ImageMagick/ImageMagick.git && \
     cd ImageMagick && \
     ./configure --without-magick-plus-plus --disable-docs --disable-static --with-tiff --with-jxl --with-tcmalloc && \
     make && make install && \
