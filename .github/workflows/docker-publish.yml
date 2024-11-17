@@ -51,3 +51,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
+      - name: Delete untagged packages
+        uses: camargo/delete-untagged-action@v1
+        with:
+          github-token: ${{ secrets.DELETE_PACKAGES_TOKEN }}
+
