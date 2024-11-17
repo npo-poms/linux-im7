@@ -1,15 +1,14 @@
 FROM ubuntu:jammy
 
 LABEL maintainer=poms@mmprogrami.nl
-LABEL org.opencontainers.image.description An ubuntu image with imagemagick 7. Copy from this. See README.
-
+LABEL org.opencontainers.image.description="An ubuntu image with imagemagick 7. Copy from this. See README."
 
 # Build ImageMagick v7
 # not available in debian yet?
 # Borrowed from: https://github.com/dooman87/imagemagick-docker
 
-ARG IM_VERSION=7.1.1-38
-ARG LIB_HEIF_VERSION=1.18.2
+ARG IM_VERSION=7.1.1-41
+ARG LIB_HEIF_VERSION=1.19.3
 ARG LIB_AOM_VERSION=3.10.0
 ARG LIB_WEBP_VERSION=1.4.0
 ARG LIBJXL_VERSION=0.11.0

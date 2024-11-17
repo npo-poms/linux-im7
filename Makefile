@@ -1,8 +1,8 @@
 
 
 docker:
-	docker build --no-cache  -t vpro/debian-im7 .
+	docker build --no-cache  --progress plain -t npo-poms/linux-im7 .
 
 
 test:
-	docker run -it vpro/debian-im7
+	docker run -it npo-poms/linux-im7
