@@ -1,7 +1,7 @@
 FROM ubuntu:jammy
 
 LABEL maintainer=poms@mmprogrami.nl
-LABEL org.opencontainers.image.description="An ubuntu image with imagemagick 7. Copy from this. See README."
+LABEL "org.opencontainers.image.description"="An ubuntu image with imagemagick 7. Copy from this. See README."
 
 # Build ImageMagick v7
 # not available in debian yet?
