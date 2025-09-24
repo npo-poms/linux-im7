@@ -7,9 +7,9 @@ LABEL "org.opencontainers.image.description"="An ubuntu image with imagemagick 7
 # not available in debian yet?
 # Borrowed from: https://github.com/dooman87/imagemagick-docker
 
-ARG IM_VERSION=7.1.1-43
-ARG LIB_HEIF_VERSION=1.19.5
-ARG LIB_AOM_VERSION=3.11.0
+ARG IM_VERSION=7.1.1-47
+ARG LIB_HEIF_VERSION=1.19.8
+ARG LIB_AOM_VERSION=3.12.1
 ARG LIB_WEBP_VERSION=1.5.0
 ARG LIBJXL_VERSION=0.11.1
 
