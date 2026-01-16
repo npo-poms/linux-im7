@@ -9,7 +9,7 @@ LABEL "org.opencontainers.image.description"="An ubuntu image with imagemagick 7
 
 ARG IM_VERSION=7.1.2-12
 ARG LIB_HEIF_VERSION=1.21.2
-ARG LIB_AOM_VERSION=3.12.1
+ARG LIB_AOM_VERSION=3.13.1
 ARG LIB_WEBP_VERSION=1.6.0
 ARG LIBJXL_VERSION=0.11.1
 
