@@ -41,9 +41,11 @@ RUN    git clone -b v${LIBJXL_VERSION} https://github.com/libjxl/libjxl.git --de
     cd libjxl && \
     mkdir build && \
     cd build && \
-    cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF .. && \
+    cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DJPEGXL_FORCE_SYSTEM_BROTLI=ON .. && \
     cmake --build . -- -j$(nproc) && \
     cmake --install . && \
+    # Avoid mixing /usr/local Brotli with Ubuntu's libbrotli during later links.
+    rm -f /usr/local/lib/libbrotli*.so* && \
     cd ../../ && \
     rm -rf libjxl && \
     ldconfig /usr/local/lib
@@ -65,7 +67,7 @@ RUN    git clone -b v${LIB_WEBP_VERSION} --depth 1 https://chromium.googlesource
     rm -rf build_aom
     # Building libheif
 RUN    curl -L https://github.com/strukturag/libheif/releases/download/v${LIB_HEIF_VERSION}/libheif-${LIB_HEIF_VERSION}.tar.gz -o libheif.tar.gz && \
-    tar -xzvf libheif.tar.gz && cd libheif-${LIB_HEIF_VERSION}/ && mkdir build && cd build && cmake --preset=release .. && make && make install && cd ../../ \
+    tar -xzvf libheif.tar.gz && cd libheif-${LIB_HEIF_VERSION}/ && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DWITH_EXAMPLES=OFF -DBUILD_EXAMPLES=OFF .. && cmake --build . --target install -- -j$(nproc) && cd ../../ && \
     ldconfig /usr/local/lib && \
     rm -rf libheif-${LIB_HEIF_VERSION} && rm libheif.tar.gz
     # Building ImageMagick
