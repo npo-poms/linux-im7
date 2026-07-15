@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 LABEL maintainer=poms@mmprogrami.nl
 LABEL "org.opencontainers.image.description"="An ubuntu image with imagemagick 7. Copy from this. See README."
