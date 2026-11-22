@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:resolute
 
 LABEL maintainer=poms@mmprogrami.nl
 LABEL "org.opencontainers.image.description"="An ubuntu image with imagemagick 7. Copy from this. See README."
@@ -30,7 +30,7 @@ RUN apt-get -y update && \
     # libjxl
     libbrotli-dev \
     # IM
-    libpng16-16 libpng-dev libgomp1 ghostscript libxml2-dev libxml2-utils libtiff-dev libfontconfig1-dev libfreetype6-dev fonts-dejavu liblcms2-dev libtcmalloc-minimal4 \
+    libpng16-16t64 libpng-dev libgomp1 ghostscript libxml2-dev libxml2-utils libtiff-dev libfontconfig1-dev libfreetype-dev fonts-dejavu liblcms2-dev libtcmalloc-minimal4t64 \
     # Install manually to prevent deleting with -dev packages
     libxext6 libbrotli1 && \
     # Building libjxl
@@ -76,6 +76,6 @@ RUN    git clone -b ${IM_VERSION} --depth 1 https://github.com/ImageMagick/Image
     ./configure --without-magick-plus-plus --disable-docs --disable-static --with-tiff --with-jxl --with-tcmalloc && \
     make && make install && \
     ldconfig /usr/local/lib && \
-    apt-get remove --autoremove --purge -y gcc make cmake clang curl g++ yasm git autoconf pkg-config libpng-dev libjpeg-turbo8-dev libde265-dev libx265-dev libxml2-dev libtiff-dev libfontconfig1-dev libfreetype6-dev liblcms2-dev libsdl1.2-dev libgif-dev libbrotli-dev && \
+    apt-get remove --autoremove --purge -y gcc make cmake clang curl g++ yasm git autoconf pkg-config libpng-dev libjpeg-turbo8-dev libde265-dev libx265-dev libxml2-dev libtiff-dev libfontconfig1-dev libfreetype-dev liblcms2-dev libsdl1.2-dev libgif-dev libbrotli-dev && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /ImageMagick

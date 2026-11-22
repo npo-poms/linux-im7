@@ -26,5 +26,6 @@ This is used in images based on link:https://ghcr.io/vpro/tomcat[ghcr.io/vpro/to
 |Version |remarks
 
 | >= 13 | first one base on ubuntu noble
+| >= 14 | based on ubuntu resolute (26.04), matching ghcr.io/vpro/tomcat:11.14. Install `libxml2-16` (not `libxml2`) in the target image
 
 |===
